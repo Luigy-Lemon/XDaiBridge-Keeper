@@ -48,8 +48,8 @@ contract KeeperOperatorScript is Script {
         else if (investThreshold < minCashThreshold) return ("INVEST_THRESHOLD must be Higher", 0);
         else if (claimThreshold > minCashThreshold) return ("CLAIM_THRESHOLD must be Lower", 0);
         // THRESHOLD CHECKS
-        else if (amountClaimable < bridge.minPerTx()) return ("Claimable amount below bridgeTx Limit", amountClaimable);
-        else if (amountClaimable < minInterestClaimed) return ("Claimable amount below minInterest Limit", amountClaimable);
+        else if (amountClaimable < bridge.minPerTx()) return ("Claimable amount below bridgeTx Limit", 0);
+        else if (amountClaimable < minInterestClaimed) return ("Claimable amount below minInterest Limit", 0);
 
         amountClaimable = (amountClaimable > bridge.maxPerTx()) ? bridge.maxPerTx() : amountClaimable;
         // Initial Logging
@@ -81,8 +81,6 @@ contract KeeperOperatorScript is Script {
         else {
             return ("Claimable amount lower than CLAIM_THRESHOLD", 0);
         }
-
-        vm.stopBroadcast();
     }
 
     function claimable() public view returns (uint256) {

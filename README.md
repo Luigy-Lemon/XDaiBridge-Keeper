@@ -1,6 +1,6 @@
 ## XDai Bridge Keeper
 
-**This is a repo dedicated to maintenance of the XDai Bridge on Goerli and Mainnet**
+**This is a repo dedicated to maintenance of the XDai Bridge on Goerli and goerli**
 **It has the ability to refill it, invest DAI into the sDAI vault, and to relay interest to Gnosis Chain**
 
 ## Usage

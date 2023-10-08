@@ -10,11 +10,11 @@ update :; forge update
 # Build & test
 build  :; forge build --sizes
 
-tests	:; forge test --fork-url mainnet -vvv
+tests	:; forge test --fork-url goerli -vvv
 
-run-keeper :; forge script script/KeeperOperator.s.sol --rpc-url mainnet --broadcast
+run-keeper :; forge script script/KeeperOperator.s.sol --rpc-url goerli --broadcast
 
-run-keeper-simple :; forge script script/KeeperOperator.s.sol --rpc-url mainnet --broadcast | grep '^TX_LOG'
+run-keeper-simple :; forge script script/KeeperOperator.s.sol --rpc-url goerli --broadcast | grep '^[TX_LOG,amountClaimable]'
 
 worker-test :; bash ./worker.sh
 
